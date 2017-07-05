@@ -11,7 +11,7 @@ try:
     old = os.getcwd()
     os.chdir("mypkg")
     os.system("conan package .. --build_folder=../")
-    print os.listdir(".")
-    print os.listdir("./lib")
+    print(os.listdir("."))
+    print(os.listdir("./lib"))
 finally:
     os.chdir(old)

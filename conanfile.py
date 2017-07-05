@@ -11,6 +11,7 @@ class TestConan(ConanFile):
 
     def package(self):
         self.copy("*", dst="lib", src="obj/libs")
+        self.copy("*.h", dst="include", src="code", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["ModuleA", "ModuleB"] # This would be the right names

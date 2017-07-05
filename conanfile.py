@@ -1,5 +1,4 @@
-from conans import ConanFile, tools
-import glob, os, shutil
+from conans import ConanFile
 
 class TestConan(ConanFile):
     name = "Test"

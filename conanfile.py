@@ -9,25 +9,8 @@ class TestConan(ConanFile):
     url = "None"
     license = "None"
 
-    def build(self):
-        if not os.path.exists("build/include"):
-            os.makedirs("build/include")
-            
-        if not os.path.exists("build/lib"):
-            os.makedirs("build/lib")
-
-        header_files = glob.glob("code/**/*.h", recursive=True)
-        for file in header_files:
-            if os.path.isfile(file):
-                shutil.copy2(file, "build/include/" + os.path.basename(file))
-                
-        lib_files = glob.glob("obj/**/*.a", recursive=True)
-        for file in lib_files:
-            if os.path.isfile(file):
-                shutil.copy2(file, "build/lib/" + os.path.basename(file))
-
     def package(self):
-        self.copy("build")
+        self.copy("*", dst="lib", src="obj/libs")
 
     def package_info(self):
-        self.cpp_info.libs = ["Test"]
+        self.cpp_info.libs = ["ModuleA", "ModuleB"] # This would be the right names

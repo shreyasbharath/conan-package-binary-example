@@ -25,3 +25,6 @@ The main scripts of interest are `build.py` and `conanfile.py`. Below are the li
 
 # Consumption of Uploaded Package
 See [conan-package-binary-consume-example](https://github.com/shreyasbharath/conan-package-binary-consume-example) to understand how to extract the contents of the uploaded package to a client project for consumption by the client project's build process.
+
+# Credits
+A big thanks to @memsharded and @drodri for their help.

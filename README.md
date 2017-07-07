@@ -1,4 +1,4 @@
-# conan-package-binary-example
+# Packaging Existing Artifacts
 A working example of packaging pre-built binaries (libs + header files) and uploading them to a Conan remote for consumption
 
 This repository is an example of integrating Conan into your existing build process where the artifacts already exist.
@@ -25,5 +25,5 @@ The main scripts of interest are `build.py` and `conanfile.py`. Below are the li
   - Execute command `conan package_files Test/0.1@myuser/testing -f` packages everything under the `mypkg` directory and copies it to the local Conan cache
   - Execute command `conan upload Test/0.1@myuser/testing --all -r=artifactory` uploads the package recipe and its artifacts to the remote named `artifactory`
 
-# Consumption of uploaded package
+# Consumption of Uploaded Package
 See [conan-package-binary-consume-example](https://github.com/shreyasbharath/conan-package-binary-consume-example) to understand how to extract the contents of the uploaded package to a client project for consumption by the client project's build process.

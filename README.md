@@ -23,6 +23,12 @@ The main scripts of interest are `build.py` and `conanfile.py`. Below are the li
   - Execute command `cd mypkg && conan package_files Test/0.1@myuser/testing -f` packages everything under the `mypkg` directory and copies it to the local Conan cache
   - Execute command `conan upload Test/0.1@myuser/testing --all -r=artifactory` uploads the package recipe and its artifacts to the remote named `artifactory`
 
+# Changing Configuration of Package
+If you are packaging binaries outside a build process it is likely that the binaries will have been built using different settings than the default profile which is used when running `conan package_files Test/0.1@myuser/testing -f`. To change the settings you have two options:
+
+  - Use the -s flag to override specific default settings: `conan package_files Test/0.1@myuser/testing -f -s arch=x86` (if the binaries were built for 32 bit architecture)
+  - Use the -pr flag to specify a different conan profile created to match the settings that the binaries were build under `conan package_files Test/0.1@myuser/testing -f -pr profileName`
+
 # Consumption of Uploaded Package
 See [conan-package-binary-consume-example](https://github.com/shreyasbharath/conan-package-binary-consume-example) to understand how to extract the contents of the uploaded package to a client project for consumption by the client project's build process.
 
